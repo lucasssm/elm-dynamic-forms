@@ -38,7 +38,7 @@ pipeline notation as in
 -}
 
 import DynForms exposing (FieldInfo, FieldType(..), Validator)
-import DynForms.Data exposing (FieldData, FieldDataType(..))
+import DynForms.Data exposing (FieldData(..), FieldDataType(..))
 
 
 --- FIELD TYPES --------------------------------------------------------------
@@ -170,9 +170,13 @@ This pre-fills the field with some value. If this option is enabled, the
 placeholder should not appear unless the user deletes the field content.
 
 -}
-default : FieldMod FieldData
+default : String -> FieldInfo -> FieldInfo
 default value info =
-    { info | default = Just value }
+    let
+        fieldData =
+            String value
+    in
+    { info | default = Just fieldData }
 
 
 {-| Defines a help string that is usually displayed bellow the field input

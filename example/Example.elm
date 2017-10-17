@@ -1,6 +1,7 @@
 module Main exposing (..)
 
 import DynForms exposing (..)
+import DynForms.Data exposing (..)
 import DynForms.Field exposing (..)
 import DynForms.JsonDecode exposing (..)
 import DynForms.JsonEncode exposing (..)
@@ -20,6 +21,7 @@ sampleForm =
             |> placeholder "Full name"
             |> help "Your name and family name in the order you'd like to be called."
             |> validators [ maxLength 200 ]
+            |> default "Nome!"
         , intField "age"
             |> label "Age"
             |> help "Your age"
