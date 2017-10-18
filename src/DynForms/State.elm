@@ -103,46 +103,18 @@ initialStateValues lst =
         initial ( dataType, default ) =
             case dataType of
                 StringDataType ->
-                    FormField.string (justExtractor default)
+                    FormField.string (asString (Maybe.withDefault (String "") default))
 
                 IntDataType ->
-                    FormField.string (justExtractor default)
+                    FormField.string (asString (Maybe.withDefault (String "") default))
 
                 BoolDataType ->
-                    FormField.bool (trueOrFalse default)
+                    FormField.bool (asBool (Maybe.withDefault (String "") default))
 
                 _ ->
                     FormField.value FormField.EmptyField
     in
     List.map (\( id, x, y ) -> ( id, initial ( x, y ) )) lst
-
-
-trueOrFalse : Maybe FieldData -> Bool
-trueOrFalse value =
-    case value of
-        Just (String "true") ->
-            True
-
-        Just (String "false") ->
-            False
-
-        _ ->
-            False
-
-
-justExtractor value =
-    case value of
-        Just (String string) ->
-            string
-
-        Just (Int int) ->
-            toString int
-
-        Nothing ->
-            ""
-
-        Just _ ->
-            ""
 
 
 initialState : List FieldInfo -> FormState
