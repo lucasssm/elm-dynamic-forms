@@ -30,6 +30,8 @@ sampleForm =
             |> default "8"
         , boolField "teste"
             |> default "true"
+        , floatField "float field"
+            |> default "3.25"
         ]
 
 

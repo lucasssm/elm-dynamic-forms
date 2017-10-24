@@ -111,8 +111,8 @@ initialStateValues lst =
                 BoolDataType ->
                     FormField.bool (asBool (Maybe.withDefault (String "") default))
 
-                _ ->
-                    FormField.value FormField.EmptyField
+                FloatDataType ->
+                    FormField.string (asString (Maybe.withDefault (String "") default))
     in
     List.map (\( id, x, y ) -> ( id, initial ( x, y ) )) lst
 
