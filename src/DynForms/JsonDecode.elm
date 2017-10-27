@@ -246,6 +246,9 @@ fieldTypeDecoder =
                     "string" ->
                         succeed StringField
 
+                    "email" ->
+                        succeed EmailField
+
                     "textarea" ->
                         succeed TextAreaField
 

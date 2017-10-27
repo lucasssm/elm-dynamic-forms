@@ -72,6 +72,9 @@ validationFromField ( id, dataType, default ) =
         BoolDataType ->
             pair validateBool
 
+        EmailDataType ->
+            pair validateEmail
+
 
 validateString : Validation FormErrors FieldData
 validateString =
@@ -92,6 +95,9 @@ validateBool : Validation FormErrors FieldData
 validateBool =
     Validate.customValidation Validate.bool (\x -> Ok (Bool x))
 
+validateEmail : Validation FormErrors FieldData
+validateEmail =
+    Validate.customValidation Validate.email (\x -> Ok (String x))
 
 
 --- STATE CONSTRUCTORS ---------------------------------------------------------
@@ -112,6 +118,9 @@ initialStateValues lst =
                     FormField.bool (asBool (Maybe.withDefault (String "") default))
 
                 FloatDataType ->
+                    FormField.string (asString (Maybe.withDefault (String "") default))
+                
+                EmailDataType ->
                     FormField.string (asString (Maybe.withDefault (String "") default))
     in
     List.map (\( id, x, y ) -> ( id, initial ( x, y ) )) lst

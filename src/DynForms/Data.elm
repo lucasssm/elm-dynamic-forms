@@ -28,6 +28,7 @@ type FieldDataType
     | BoolDataType
     | IntDataType
     | FloatDataType
+    | EmailDataType
 
 
 {-| Field data

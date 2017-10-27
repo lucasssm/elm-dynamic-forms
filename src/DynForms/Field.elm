@@ -3,6 +3,7 @@ module DynForms.Field
         ( boolField
         , default
         , floatField
+        , emailField
         , help
         , hiddenField
         , intField
@@ -18,7 +19,7 @@ module DynForms.Field
 
 # Field types
 
-@docs stringField, textField, boolField, hiddenField, intField, floatField
+@docs stringField, textField, boolField, hiddenField, intField, floatField, emailField
 
 
 ## Constructor helpers
@@ -69,6 +70,17 @@ stringField id =
         | id = id
         , label = Just id
         , fieldType = StringField
+    }
+
+{-| 
+-}
+emailField : String -> FieldInfo
+emailField id =
+    { defaultFieldInfo
+        | id = id
+        , label = Just id
+        , fieldType = EmailField
+        , dataType = EmailDataType
     }
 
 

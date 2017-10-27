@@ -32,6 +32,8 @@ sampleForm =
             |> default "true"
         , floatField "float field"
             |> default "3.25"
+        , emailField "email teste"
+            |> default "uhu"
         ]
 
 
