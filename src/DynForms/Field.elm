@@ -72,7 +72,7 @@ stringField id =
         , fieldType = StringField
     }
 
-{-| 
+{-| Email fields represents a regular string input with email regex validation
 -}
 emailField : String -> FieldInfo
 emailField id =

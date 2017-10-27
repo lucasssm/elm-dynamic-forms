@@ -98,7 +98,10 @@ getInputElement state info st =
             fromText [ type_ "number", step "1" ]
 
         FloatField ->
-            fromText [ type_ "number" ]
+            fromText [ type_ "number", step "0.1" ]
+
+        EmailField ->
+            fromText [ type_ "email"]
 
         BoolField ->
             Form.getFieldAsBool info.id state
