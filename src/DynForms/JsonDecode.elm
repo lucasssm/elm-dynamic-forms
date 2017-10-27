@@ -300,7 +300,10 @@ fieldInfoFactory id type_ label placeholder help default validators =
 
                 FloatField ->
                     FloatDataType
-
+                
+                EmailField ->
+                    EmailDataType
+                
                 _ ->
                     StringDataType
 
