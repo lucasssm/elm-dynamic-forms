@@ -178,6 +178,7 @@ Enumerate the possible field types.
 type FieldType
     = HiddenField
     | StringField
+    | EmailField
     | TextAreaField
     | IntField
     | FloatField

@@ -117,6 +117,9 @@ fieldTypeName tt =
         StringField ->
             "string"
 
+        EmailField ->
+            "email"
+
         TextAreaField ->
             "textarea"
 
@@ -163,6 +166,11 @@ encodeDatum id info state =
             (Form.getFieldAsBool id state).value
                 |> Maybe.map bool
                 |> Maybe.withDefault null
+
+        EmailDataType ->
+            (Form.getFieldAsString id state).value
+                |> Maybe.map string
+                |> Maybe.withDefault (string "")
 
 
 {-| Encodes a Layout object to a value

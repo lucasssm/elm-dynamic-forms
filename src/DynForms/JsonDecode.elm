@@ -246,6 +246,9 @@ fieldTypeDecoder =
                     "string" ->
                         succeed StringField
 
+                    "email" ->
+                        succeed EmailField
+
                     "textarea" ->
                         succeed TextAreaField
 
@@ -297,7 +300,10 @@ fieldInfoFactory id type_ label placeholder help default validators =
 
                 FloatField ->
                     FloatDataType
-
+                
+                EmailField ->
+                    EmailDataType
+                
                 _ ->
                     StringDataType
 
