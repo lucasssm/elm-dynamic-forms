@@ -20,7 +20,7 @@ import Form
 import Form.Field exposing (FieldValue(..))
 import Form.Input as Input
 import Html exposing (Html, div, form, text)
-import Html.Attributes exposing (action, class, name, step, type_)
+import Html.Attributes exposing (action, class, name, step, type_, placeholder)
 import Maybe exposing (withDefault)
 
 
@@ -88,9 +88,12 @@ viewField state info data =
 getInputElement : FormState -> FieldInfo -> FieldValue -> Html Msg
 getInputElement state info st =
     let
+        checkPlaceholder =
+            Html.Attributes.placeholder (Maybe.withDefault "" (info.placeholder))
+
         fromText attrs =
             Form.getFieldAsString info.id state
-                |> (\state -> Input.textInput state (name info.id :: attrs))
+                |> (\state -> Input.textInput state (name info.id :: checkPlaceholder :: attrs))
                 |> Html.map StateMsg
     in
     case info.fieldType of
